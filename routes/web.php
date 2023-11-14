@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\SaludoController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/libros', [BooksController::class, 'getAll']);
 
 Route::pattern('numero', '[0-9]+');
 Route::get('/suma/{numeros}', function ($numeros) {
